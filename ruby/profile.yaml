@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kromsam/shaffy-os/main/schema/profile.schema.json
+# Ruby for the editor and for agents: a Ruby from mise with the ruby-lsp gem, LazyVim's
+# Ruby extra, and Claude Code's ruby-lsp plugin. docs/PROFILES.md in Shaffy OS describes
+# every section.
+---
+schema_version: 1
+description: Ruby through mise with the ruby-lsp gem, LazyVim's Ruby extra and Claude Code's ruby-lsp plugin.
+# The first Shaffy OS release with profiles.
+minimum_release: v2026.11.10
+overrides:
+  mise: mise.toml
+lazyvim:
+  extras: [lazyvim.plugins.extras.lang.ruby]
+ai:
+  # Claude Code's built-in plugin directory offers ruby-lsp too, but without the language
+  # server, which only Anthropic's marketplace repository declares.
+  claude_plugins:
+    ruby-lsp@claude-plugins-official: anthropics/claude-plugins-official

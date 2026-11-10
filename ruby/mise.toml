@@ -1,0 +1,13 @@
+# The editor's Ruby extra and Claude Code's ruby-lsp plugin run the ruby-lsp gem of the
+# active Ruby. Every `mise install` adds it to this Ruby, also when it was installed
+# before, and leaves it alone once there.
+[tools]
+ruby = { version = "latest", postinstall = { run = "gem install --conservative ruby-lsp", when = "always" } }
+
+[settings]
+# A project's .ruby-version picks its Ruby.
+idiomatic_version_file_enable_tools = ["ruby"]
+
+[settings.ruby]
+# Precompiled Rubies, so no build toolchain is needed.
+compile = false
